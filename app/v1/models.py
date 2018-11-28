@@ -1,16 +1,16 @@
 from flask import request, jsonify
-incident = []
+redflags = []
 
-def check_if redflags_exist(incident):
+def check_if_redflags_exist(incident):
 	'''checking the existence of a red flag'''
-	redflag = [redflag for redflag in redflags if redflag['name'] == incident.rstrip()]
+	redflag = [redflag for redflag in redflags if redflag['title'] == incident.rstrip()]
 
-    if redflag:
-
-        return True
+	if redflag:
+		return True
 
 	return False
-	class Redflags():
+
+class Redflags():
 
   """Class to handle redflags"""
 
@@ -24,16 +24,11 @@ def check_if redflags_exist(incident):
 
     nature = request.json.get('nature', None)
 
-    comment = request.json.get('comment', None
+    comment = request.json.get('comment', None)
 
-    if title == '' or nature == '' or comment == '':
-
-      return {'error': 'Fields cannot be empty'}, 401 
-
-​
     # Check for duplicate items
 
-    present = check_if_redflag_exists(name)
+    present = check_if_redflags_exist(title)
 
     if present:
 
@@ -52,14 +47,11 @@ def check_if redflags_exist(incident):
 
       "comment" : comment
 
-      "reorder" : reorder
 
     }
 
     # Append to the products list
 
-    redflagss.appendredflag_dict)
+    redflags.append(redflag_dict)
 
-		return {"msg": "Redflag successfully created"}, 201
-
-Message Input
+    return {"msg": "Redflag successfully created"}, 201
