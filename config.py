@@ -22,10 +22,8 @@ class TestingConfig(Config):
     DEBUG = True
 
 app_config = {
-
     'development': DevelopmentConfig,
     'testing': TestingConfig
-
 }
 
 
